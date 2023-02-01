@@ -51,3 +51,9 @@ Normalmente fazem parte de outros dispositivos e ajudam a controlá-los. Podem s
 
 O Android é um sistema operacional móvel desenvolvido principalmente pela Google. A empresa inicialmente criou um sistema operacional destinado a rodar em câmeras digitais. 
 
+## Diferenças entre o Linux Desktop e Linux Server
+
+O modelo cliente-servidor é uma estrutura de aplicação que distribui as tarefas e cargas de trabalho entre os fornecedores de um recursos ou serviço, designados como servidores, e os requerentes dos serviços, designados como clientes.
+
+![cliente-servidor](cliente-servidor.png)
+
