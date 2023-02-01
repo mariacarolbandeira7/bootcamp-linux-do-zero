@@ -1,5 +1,5 @@
 # bootcamp-linux-do-zero
-Entendendo o que é Linux e suas funcionalidades
+Entendendo o que é o Linux e suas funcionalidades
 
 ## O que é um Sistema Operacional?
 
@@ -26,4 +26,28 @@ _Sistemas operacionais domésticos mais utilizados:_
 * Linux
 
 _Vídeo:_ [Most Popular Operating Systems [Desktops & Laptops] 2003-2019](https://youtu.be/eJuvKn5j_kE)
+
+## O que é o Linux?
+
+O Linux é um dos sistemas operacionais mais populares e é amplamente utilizado no segmento de __servidores__ e por __desenvolvedores de software__. 
+
+Ainda existe um grande espaço para crescimento no segmento de computadores pessoais.
+
+O kernel do Linux começou a ser __desenvolvido por Linus Torvalds__ em 1991 inspirado no Unix, um outro sistema operacional criado nos anos 70. O Desenvolvimento inicial do kernel do Linux começou com Linus ainda quando estava na faculdade em Helsinki, na Finlândia. 
+
+O Linux, mais especificamente o kernel do sistema operacional, não é suportado por uma empresa individual, mas por uma comunidade internacional de desenvolvedores. O kernel do Linux está disponível gratuitamente e pode ser usado por qualquer pessoa, sem restrições.
+
+O kernel do Linux é mantido pela [Linux Foundation](https://linuxfoundation.org/), que é uma organização sem finslucrativos. Para manter o kernel atualizado e implementar melhorias, a fundação é mantida por doações de grandes empresas que utilizam o Linux em seus produtos ou serviços.
+
+### __O que são distribuições?__
+
+Uma distribuição Linux é um pacote que consiste em um kernel Linux, mais uma seleção de aplicativos mantidos por uma empresa ou comunidade de usuários. O objetivo de uma distribuição é otimizar o kernel e os aplicativos que rodam no sistema operacional para um determinado tipo de uso ou grupo de usuários.
+
+### __Sistemas Embarcados__
+
+Os sistemas embarcados são uma combinação de hardware e software projetados para cumprir uma função específica de um sistema maior. 
+
+Normalmente fazem parte de outros dispositivos e ajudam a controlá-los. Podem ser encontrados em aplicações automotivas, médicas e até militares.
+
+O Android é um sistema operacional móvel desenvolvido principalmente pela Google. A empresa inicialmente criou um sistema operacional destinado a rodar em câmeras digitais. 
 
