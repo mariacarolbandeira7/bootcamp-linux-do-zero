@@ -19,3 +19,11 @@ Resumidamente, o Kernel é a ponte entre o usuário e o hardware. O kernel comp�
 4. Gerenciar o uso de dispositivos, memória do sistema e chamadas dos programas, definindo quais têm prioridade.
 
 ![funcionamento-do-kernel](CPU.png)
+
+_Sistemas operacionais domésticos mais utilizados:_
+* Microsoft Windows
+* Mac OS
+* Linux
+
+_Vídeo:_ [Most Popular Operating Systems [Desktops & Laptops] 2003-2019](https://youtu.be/eJuvKn5j_kE)
+
