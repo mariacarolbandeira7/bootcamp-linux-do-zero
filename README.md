@@ -57,3 +57,77 @@ O modelo cliente-servidor é uma estrutura de aplicação que distribui as taref
 
 ![cliente-servidor](cliente-servidor.png)
 
+## Acesso Remoto via Linux
+
+Como fazer o acesso remoto de uma máquina virtual linux via SO Linux?
+
+É muito simples! Basta digitar o comando:
+
+> ssh [nome de usuário]@[número do ip]
+
+Para localizar o número do ip que você deseja fazer o acesso remoto, informe o comando no terminal:
+
+> ip a
+
+Se estiver tudo certo, você conseguirá realizar o acesso remoto sem problemas. Muito fácil né? ;)
+
+## Navegando pelo sistema de arquivos
+
+> pwd - informa em qual diretório você está
+
+> cd - change directory ou mudar de diretório
+
+> cd .. - sair do diretório
+
+> / - diretório raiz
+
+> /~/ - usuário sem permissões de administrador
+
+> /#/ - usuário com permissões de administrador
+
+> ls - lista os arquivos que estão dentro de um diretório
+
+> cd ../ - sai do diretório atual e muda para o novo diretório
+
+> cd / - sair de todos os diretórios e voltar para o diretório raiz
+
+## Filtrando a exibição de arquivos
+
+> ls | more - quando uma lista grande precisa ser exibida mas o sistema não possui barra de rolagem, assim é possível ver a lista completa
+
+> ls [letra]* - lista os arquivos que iniciam com essa letra
+
+> ls ?* - para especificar o caracter que se está buscando
+
+> ls arquivo[1-3]* - lista 3 arquivos em sequência
+
+> ls arquivo [2,5]* - lista apenas os arquivos na posição informada pelo parâmetro
+
+> ls arquivo [^2, 5]* - não lista os arquivos nas posições 2 e 5
+
+> ls arquivo [^3-5]* - não exibe os arquivos nas posições 3 até 5
+
+## Localizando arquivos
+
+
+> ls /nome do diretório - lista os arquivos que estão dentro do diretório referido
+
+> ls /nome do diretório/ nome do diretório - lista os arquivos que estão no último diretório referido 
+
+> ls /nome do diretório/nome do diretório/letra* - lista os arquivos dentro do último diretório que começam com uma letra específica
+
+> find -name [nome do arquivo]* - busca um arquivo pelo nome dentro do diretório atual
+
+## Criando diretórios
+
+> mkdir /local - cria um diretório no local indicado
+ 
+## Excluindo arquivos e diretórios
+
+> rmdir - exclui diretórios
+
+> rm - exclui arquivos
+
+> rm nome do arquivo* - exclui todos os arquivos que tenham o mesmo nome 
+
+> rm- rf - exclui todos os arquivos de um diretório
