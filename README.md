@@ -131,3 +131,16 @@ Se estiver tudo certo, você conseguirá realizar o acesso remoto sem problemas.
 > rm nome do arquivo* - exclui todos os arquivos que tenham o mesmo nome 
 
 > rm- rf - exclui todos os arquivos de um diretório
+
+> rfv - recursive force verbose - remove arquivos e diretórios e explica o que está acontecendo enquanto a exclusão acontece
+
+> rfvi - pede permissão para excluir
+
+## Obtendo ajuda
+
+> [comando] --help - lista comandos úteis do terminal
+
+> man [comando] - lista comandos úteis
+
+> -R - abre o que está dentro de cada uma das pastas que estão dentro de um diretório
+
