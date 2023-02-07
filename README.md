@@ -91,6 +91,8 @@ Se estiver tudo certo, você conseguirá realizar o acesso remoto sem problemas.
 
 > cd / - sair de todos os diretórios e voltar para o diretório raiz
 
+> cat - mostra o conteúdo de um arquivo texto
+
 ## Filtrando a exibição de arquivos
 
 > ls | more - quando uma lista grande precisa ser exibida mas o sistema não possui barra de rolagem, assim é possível ver a lista completa
@@ -115,6 +117,8 @@ Se estiver tudo certo, você conseguirá realizar o acesso remoto sem problemas.
 > ls /nome do diretório/ nome do diretório - lista os arquivos que estão no último diretório referido 
 
 > ls /nome do diretório/nome do diretório/letra* - lista os arquivos dentro do último diretório que começam com uma letra específica
+
+> ls -a - localiza arquivos ocultos
 
 > find -name [nome do arquivo]* - busca um arquivo pelo nome dentro do diretório atual
 
@@ -143,4 +147,144 @@ Se estiver tudo certo, você conseguirá realizar o acesso remoto sem problemas.
 > man [comando] - lista comandos úteis
 
 > -R - abre o que está dentro de cada uma das pastas que estão dentro de um diretório
+
+## Executando tarefas administrativas como root
+
+O comando usado para realizar as tarefas administrativas como usuário root é **sudo**.
+
+Digitando esse comando, é possível ter acesso as configurações da utilização do comando sudo. 
+
+> cat /etc/sudoers
+
+## Logando como usuário root
+
+**Criando senha para o usuário root**
+
+> sudo passwd root
+
+**Para logar como super usuário, digite o comando:**
+
+> su
+
+**Para trocar de usuário**
+
+> su [nome do usuário]
+
+## Liberando acesso remoto do usuário root
+
+O comando abaixo, abre o arquivo onde a gente pode visualizar as configurações para liberar o acesso remoto ao usuário root:
+
+> cat /etc/ssh/sshd_config
+
+O **nano** é um editor de texto que pode ser utilizado via terminal Linux. 
+
+O comando abaixo, permite que a gente abra o arquivo onde podemos visualizar as configurações para liberar o acesso remoto ao usuário root a partir desse editor de texto.
+
+> nano /etc/ssh/sshd_config
+
+Porém a gente não vai conseguir editar esse arquivo porque é um arquivo 'unwritable', ou seja, não editável.
+
+Para corrigir isso é muito simples. Isso aconteceu porque não temos permissão de usuário root. Portanto, basta digitar a mesma linha de comando mas acrescentando o comando **sudo**. Desta forma:
+
+> sudo nano /etc/ssh/sshd_config
+
+Ou poderia entrar diretamente trocando para o usuário root.
+
+**Depois disso, é preciso reiniciar o serviço ssh.**
+
+> systemct1 status sshd [para visualizar quem está acessando o sistema]
+
+> systemct1 restart sshd [para reiniciar o serviço]
+
+## Trabalhando com arquivos de texto
+
+**Vi - editor de texto a partir do terminal.**
+
+Para abrir um arquivo ou criar um novo arquivo, basta digitar a seguinte linha de comando:
+
+> vi [nome do arquivo de texto]
+
+Para inserir conteúdo dentro do arquivo de texto a partir do vi:
+
+> tecla i para abrir o modo de inserção de texto
+
+Para fechar o modo de inserção:
+
+> tecla esc para fechar o modo de inserção de texto
+
+Para salvar e sair do editor:
+
+> :wq
+
+w - write
+q - quit
+
+Para ler o que foi criado dentro desse arquivo, é só digitar o comando:
+
+> cat + nome do arquivo
+
+**Nano - editor de texto a partir do terminal**
+
+O Nano é mais fácil de ser usado pois ele dá para o usuário a sugestão de como as teclas de atalho devem ser usadas. Para iniciantes, é o editor de texto a partir do terminal mais recomendado. 
+
+## Histórico de comandos
+
+É interessante saber como verificar o histórico de comandos para verificar o que o(s) usuário(s) estão aprontando. :P
+
+Comando **history** - armazena o histórico de comandos de um usuário. 
+
+Para utilizar esse comando, basta digitar no terminal o seguinte:
+
+> [nome do usuário] + history
+
+Para aproveitar um comando que já foi utilizado:
+
+> ! + o número em que esse comando aparece
+
+Para aproveitar o último comando utilizado:
+
+> !!
+
+Executar um comando que não sei todas as letras:
+
+> ex.: !?dat?
+
+Consulta para saber todas as vezes que uma palavra foi utilizada, independente do parâmetro que foi utilizado:
+
+> history | grep "palavra"
+
+trocar uma variável de ambiente:
+
+> export HISTTIMEFORMAT="%c "
+
+trocar o parâmetro do terminal para que um comando não seja armazenado:
+
+> set +o nome do comando
+
+Os comandos utilizados não serão armazenados, mas o parâmetro que faz isso acontecer será armazenado. Portanto, ao verificar a atividade desse usuário que fez essa troca de parâmetro, poderá ser verificada essa mudança. 
+
+Para desfazer essa mudança, basta utilizar o comando:
+
+> set -o nome do comando
+
+Armazenar um número exato de comando de um usuário:
+
+> cat .bashrc
+
+Para editar o arquivo:
+
+> nano .bashrc 
+
+Mudar o parâmetro do HISTSIZE para 50, por exemplo. 
+
+Só serão armazenados os cinquenta últimos comandos utilizados pelo usuário.
+
+Histórico de todos os comandos utilizados pelo usuário:
+
+> history -w
+
+Esse comando não retorna nada. Esse histórico estará na pasta do usuário chamada .bash_history
+
+
+
 
