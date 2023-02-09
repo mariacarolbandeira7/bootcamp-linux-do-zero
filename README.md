@@ -285,6 +285,200 @@ Histórico de todos os comandos utilizados pelo usuário:
 
 Esse comando não retorna nada. Esse histórico estará na pasta do usuário chamada .bash_history
 
+## Criando e excluindo usuários
+
+Criando usuário:
+
+> useradd nomedousuario
+
+Excluindo usuário:
+
+> userdel -f nomedousuario
+
+Criando usuário, pasta e cadastrar o nome completo desse usuário:
+
+> useradd nomedousuario -m -c "Nome Completo do Usuário"
+
+Criando senha para o novo usuário:
+
+> passwd nomedousuario
+
+Indicando qual o shell* que o novo usuário vai utilizar:
+
+***Shell é um programa que vai ter acesso ao kernel do sistema operacional**
+
+> chsh (change shell) -s /bin/bash/nomedousuario
+
+Essa configuração foi necessária porque na hora que o usuário foi criado o shell não foi especificado. 
+
+Deletando o usuário criado:
+
+> userdel -r -f nomedousuario
+
+Dessa forma, é possível ter certeza de que o usuário foi excluído. 
+
+**Indicando o bash do usuário no momento em que este está sendo criado:**
+
+> useradd nomedousuario -m -c "Nome do Usuário" -s /bin/bash
+
+Criar senha do usuário:
+
+> passwd nomedousuario
+
+## Editando informações do usuário
+
+Criando acesso para o usuário durante um período pré-estabelecido:
+
+> useradd guest -c "Convidado" -m -e 12/02/2023
+
+Para realizar alterações no usuário:
+
+> usermod
+
+Para o usuário cadastrar a própria senha e definir uma data de expiração da senha:
+
+> passwd nomedousuario -e
+
+Consultar quanto usuários há no sistema:
+
+> cat etc/passwd
+
+> usermod guest -c "Convidado Especial"
+
+## Shell Script - Criando usuários em lote
+
+Criando usuário com senha encriptada
+
+> useradd convidado1 -c "Convidado Especial" -s /bin/bash -m-p $(openssl passwd -crypt Senha123)
+
+Criar usuários com senha definida
+
+> mkdir /scripts
+
+> nano criar_user.sh
+
+Iniciar arquivo de texto assim:
+>#!/bin/bash
+
+Script para criar usuários com a possibilidade de criar a própria senha:
+> useradd guest10 -c "Usuário Convidado" -s /bin/bash -m -p $(openssl passwd -cript Senha123)
+
+> passwd guest10 -e
+
+Finalize o arquivo com
+
+> echo "Finalizado!!!"
+
+Para conseguir editar o arquivo .sh, escreva o parâmetro e execute:
+
+>chmod +x criar_user.sh
+
+Para acessar o arquivo, escreva:
+
+> ./criar_user.sh
+
+## Adicionando usuários a grupos
+
+Criando usuário
+
+> useradd mariana -c "Mariana dos Anjos" -m -s /bin/bash -p $(openssl passwd -crypt Senha123)
+
+Checar os grupos que estão no sistema:
+
+> cat /etc/group
+
+Adicionando ao grupo sudoers (adm,sudo):
+
+> usermod -G adm,sudo mariana
+
+Agora o usuário Mariana tem privilégios de administrador, mas sempre que quiser criar uma pasta ou usuário, ela terá que usar o comando sudo, porque embora tenha privilégio de administrador, não é um usuário root.
+
+## Criando novos grupos
+
+Criando grupos:
+
+> groupadd GRP_ADM
+
+> groupadd GRP_VEN
+
+Adicionando usuários a esses grupos:
+
+> useradd rodrigo -c "Rodrigo Silva" -m -s /bin/bash -p $(openssl passwd -crypt Senha123) -GRP_ADM
+
+> useradd debora -c "Débora Silva" -m -s /bin/bash -p $(openssl passwd -crypt Senha123) -GRP_ADM
+
+> useradd daniel -c "Daniel Silveira" -m -s /bin/bash -p $(openssl passwd -crypt Senha123) -GRP_VEN
+
+> useradd maisa -c "Maisa Ribeiro" -m -s /bin/bash -p $(openssl passwd -crypt Senha123) -GRP_VEN
+
+Para checar os usuários que foram adicionandos aos grupos:
+
+> cat /etc/group
+
+Adicionando um usuário que já foi criado a um grupo:
+
+> usermod -G GRP_VEN joao
+
+Excluir um usuário de um grupo e transferi-lo para outro:
+
+> usermod -G GRP_VEN mariana
+
+Para checar se a mudança ocorreu:
+
+> cat /etc/group
+
+Mariana saiu dos grupos que ela estava e ficou apenas no grupo indicado na linha de comando. Mas se a gente quisesse que ela permanecesse nos grupos em que estava, o comando que a gente precisaria dar seria:
+
+> usermod -G adm,sudo,GRP_VEN mariana
+
+Mas e se a gente quisesse tirar a Mariana só do grupo sudo? Existe um comando específico para isso:
+
+> gpasswd -d mariana sudo
+
+## Conectando o sistema de permissões
+
+r - read </br>
+w - write </br>
+x - execution
+
+1ª coluna - dono 4</br> 
+2ª coluna - grupo 2</br> 
+3ª coluna - outros 1 </br>
+Nenhuma permissão - 0
+
+**Criando permissões**
+
+Trocando o dono de um diretório e o grupo que pode acessar esse diretório:
+
+> chown debora:GRP_ADM /adm/
+
+Essa ação só é possível se você estiver logado no sistema como usuário root ou utilizando o comando sudo.
+
+> chown mariana:GRP_VEN /ven/
+
+## Alterando as permissões de um diretório - arquivo
+
+> chmod 750 /adm/
+
+Cada número corresponde a uma coluna. 
+
+Adicionando permissão de execução a um arquivo
+
+> chmod +x date.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
