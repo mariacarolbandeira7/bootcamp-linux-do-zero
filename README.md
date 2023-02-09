@@ -293,7 +293,7 @@ Criando usuário:
 
 Excluindo usuário:
 
-> userdel -f nomedousuario
+> userdel -r -f nomedousuario
 
 Criando usuário, pasta e cadastrar o nome completo desse usuário:
 
