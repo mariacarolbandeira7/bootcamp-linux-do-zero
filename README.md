@@ -466,6 +466,52 @@ Adicionando permissão de execução a um arquivo
 
 > chmod +x date.sh
 
+## Gerenciamento de Pacotes Debian / Ubuntu
+
+Baixo nível - a nível do sistema. Menos amigável com o usuário.
+
+> apt-get
+
+Ferramenta mais moderno. Interação com o usuário mais amigável
+
+> apt
+
+Listar atualizações disponíveis
+
+> apt list --upgradable
+
+Buscar atualizações de uma aplicação específica.
+
+> Ex.: apt search samba
+
+Comando para fazer downloads de arquivos a partir do terminal:
+
+> wget
+
+Para descompactar um arquivo zipado:
+
+> unzip
+
+Para remover programas instalados:
+
+> apt remove 
+
+Link de todos os repositórios oficiais do ubuntu
+
+> apt edit-sources
+
+## Atualização do Sistema Operacional
+
+Vai fazer a atualização sem perguntar nada
+
+> apt upgrade -y
+
+
+
+
+
+
+
 
 
 
